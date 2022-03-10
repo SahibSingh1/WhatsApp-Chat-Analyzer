@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 def processor( data):
-    patterns = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s'
+    patterns = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s|\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\sPM\s-\s|\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\sAM\s-\s'
 
     messages = re.split(patterns, data)[1:]
     dates = re.findall(patterns, data)
