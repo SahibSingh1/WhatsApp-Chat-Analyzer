@@ -5,6 +5,12 @@ def processor( data):
 
     messages = re.split(patterns, data)[1:]
     dates = re.findall(patterns, data)
+    if (s[3]=="/" and s[6]==',') or (s[5]=='/' and s[8]==',') or(s[4]=='/' and s[7]==','):
+        date=[]
+        for s in dates:
+            i = s.find(',',1)
+            date.append(s[:i-2]+"20"+s[i-2:])
+        dates=date
     df = pd.DataFrame({'messages': messages, "dates": dates})
 
     # convert date into format
