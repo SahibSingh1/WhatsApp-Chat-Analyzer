@@ -15,7 +15,10 @@ def processor( data):
     df = pd.DataFrame({'messages': messages, "dates": dates})
 
     # convert date into format
-    df['dates'] = pd.to_datetime(df['dates'], format='%d/%m/%Y, %H:%M - ')
+    try:
+        df['dates']=pd.to_datetime(df['dates'],format='%d/%m/%Y, %H:%M - ')
+    except:
+        df['dates']=pd.to_datetime(df['dates'],format='%d/%m/%Y, %I:%M %p - ')
 
     texts = []
     user = []
