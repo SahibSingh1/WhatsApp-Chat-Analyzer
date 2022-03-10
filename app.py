@@ -88,11 +88,11 @@ if uploaded_file is not None:
                with col2:
                     st.dataframe(new_df)
           # word cloud
-               word_cloud=helper.wordcloud(df,selected_user)
-               fig, ax=plt.subplots()
-               ax.imshow(word_cloud)
-               st.title("Word Cloud")
-               st.pyplot(fig )
+          word_cloud=helper.wordcloud(df,selected_user)
+          fig, ax=plt.subplots()
+          ax.imshow(word_cloud)
+          st.title("Word Cloud")
+          st.pyplot(fig )
           most_common=helper.most_common(selected_user,df)
           fig,ax=plt.subplots()
           ax.barh(most_common[0],most_common[1],color='skyblue')
