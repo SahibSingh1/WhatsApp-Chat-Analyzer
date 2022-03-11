@@ -12,8 +12,41 @@ def processor( data):
             i = s.find(',',1)
             date.append(s[:i-2]+"20"+s[i-2:])
         dates=date
-    df = pd.DataFrame({'messages': messages, "dates": dates})
-
+    
+    
+    x=[]
+    for i in dates:
+        y=i.split(',')
+        x.append(y)
+    
+    date=[]
+    time=[]
+    for i in range(len(x)):
+        date.append(x[i][0])
+        time.append(x[i][1])
+        
+    df=pd.DataFrame({'messages':messages,"dates":date,'time':time})
+    
+    
+    sp=[]
+    def spaceremover(s):
+        a=s[1:len(s)-3]
+        sp.append(a)
+    df['time'].apply(spaceremover)
+    df['time']=sp
+    
+    try:
+    df['time']=pd.to_datetime(df['time'],format='%H:%M')
+except:
+    df['time']=pd.to_datetime(df['time'],format='%I:%M %p').dt.time
+    df['time']=df['time'].apply(lambda x:str(x))
+    df['dates']=df['dates']+" "+df['time']
+    try:
+        df['dates']=pd.to_datetime(df['dates'],format='%d/%m/%Y %H:%M:%S')
+    except:
+        df['dates']=pd.to_datetime(df['dates'],format='%m/%d/%Y %H:%M:%S')
+    
+    
 # convert date into format
     try:
         df['dates']=pd.to_datetime(df['dates'],format='%d/%m/%Y, %H:%M - ')
