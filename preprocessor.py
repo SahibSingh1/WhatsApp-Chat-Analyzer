@@ -36,7 +36,7 @@ def processor( data):
     df['time']=sp
     
     try:
-        df['time']=pd.to_datetime(df['time'],format='%H:%M')
+        df['time']=pd.to_datetime(df['time'],format='%H:%M').dt.time
     except:
         df['time']=pd.to_datetime(df['time'],format='%I:%M %p').dt.time
     df['time']=df['time'].apply(lambda x:str(x))
