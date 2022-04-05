@@ -87,6 +87,14 @@ if uploaded_file is not None:
                     st.pyplot(fig)
                with col2:
                     st.dataframe(new_df)
+                    
+          # heat map
+          st.title("Weekly Activity Map")
+          user_heatmap = helper.activity_heatmap(selected_user,df)
+          fig,ax = plt.subplots()
+          ax = sns.heatmap(user_heatmap)
+          st.pyplot(fig)
+          
           # word cloud
           word_cloud=helper.wordcloud(df,selected_user)
           fig, ax=plt.subplots()
