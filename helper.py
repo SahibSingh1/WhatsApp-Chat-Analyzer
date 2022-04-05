@@ -33,11 +33,11 @@ def busy_users(df):
     return x,y
 
 
-def wordcloud(df, selected_user):
+def wordcloud( selected_user,df):
     if selected_user!="Overall":
         df = df[df['user'] == selected_user]
-    df=df[df['messages']!='<Media omitted>\n']
-    df=df[df['user'] != 'Notification']
+    temp=df[df['messages']!='<Media omitted>\n']
+    temp=df[df['user'] != 'Notification']
 
     def remove_stopwords(message):
         f = open('hinglish_stopwords.txt', 'r')
@@ -48,9 +48,9 @@ def wordcloud(df, selected_user):
                 y.append((i))
         return " ".join(y)
 
-    df['messages']=df['messages'].apply(remove_stopwords)
+    temp['messages']=df['messages'].apply(remove_stopwords)
     wc=WordCloud(width=500,height=500,min_font_size=10,background_color='white')
-    df_wc=wc.generate(df['messages'].str.cat(sep=" "))
+    df_wc=wc.generate(temp['messages'].str.cat(sep=" "))
     return df_wc
 def most_common(selected_user,df):
     if selected_user!="Overall":
@@ -106,3 +106,13 @@ def monthly_activity(selected_user,df):
     if selected_user!="Overall":
         df = df[df['user'] == selected_user]
     return df['month'].value_counts()
+
+
+def activity_heatmap(selected_user,df):
+
+    if selected_user != 'Overall':
+        df = df[df['user'] == selected_user]
+
+    user_heatmap = df.pivot_table(index='day', columns='period', values='messages', aggfunc='count').fillna(0)
+
+    return user_heatmap
