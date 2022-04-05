@@ -44,7 +44,7 @@ def wordcloud( selected_user,df):
         stopwords = f.read()
         y=[]
         for i in message.lower().split():
-            if i not in stopwords:
+            if i not in stopwords and i not in ("media","omitted"):
                 y.append((i))
         return " ".join(y)
 
