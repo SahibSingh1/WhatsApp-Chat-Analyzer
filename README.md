@@ -3,7 +3,10 @@
 This project takes any WhatsApp Chat (individual or group) and uses tools like pandas, matplotlib to provide an analysis on the basis of different features including stats (total messages, words, media & links shared), busiest users, weekly & monthly activity maps,periodically heat maps, daily timeline and other fun stats including Word Cloud and Emoji analysis.  
 
 You can also check these stats examples for an idea
+
+ ![Screenshot (214)](https://user-images.githubusercontent.com/71924657/213845365-ba907d6c-cdc0-418d-af71-8caec798bf88.png)  
  
+
 ![photo_2023-01-19_21-52-26](https://user-images.githubusercontent.com/71924657/213496962-ccf65f59-d4a8-44f4-9857-731f11940581.jpg)  
 
 ![photo_2023-01-19_21-52-21](https://user-images.githubusercontent.com/71924657/213496974-aeb90831-6829-40bd-93e1-08b71c378e6e.jpg)  
