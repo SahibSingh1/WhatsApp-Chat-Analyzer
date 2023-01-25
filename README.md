@@ -1,6 +1,6 @@
 # WhatsApp-Chat-Analyzer
 
-This project takes any WhatsApp Chat (individual or group) and uses tools like pandas, matplotlib to provide an analysis on the basis of different features including stats (total messages, words, media & links shared), busiest users, weekly & monthly activity maps,periodically heat maps, daily timeline and other fun stats including Word Cloud and Emoji analysis.  
+This project analyses any WhatsApp Chat (individual or group) using many features such as Metrics (total messages, words, media, and links exchanged), Busiest users, Weekly & Monthly Activity Maps, Periodically Heat Maps, Daily Timeline, and other entertaining stats like as Word Cloud and Emoji Analysis.  
 
 You can also check these stats examples for an idea
 
